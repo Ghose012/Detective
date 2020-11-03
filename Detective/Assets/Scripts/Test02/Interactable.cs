@@ -16,12 +16,16 @@ internal enum TypeofItem
     PlaceHolder
 }
 
+[RequireComponent(typeof(BoxCollider2D))]
 [ExecuteInEditMode]
 internal class Interactable : MonoBehaviour, IPointerDownHandler
 {
-    public TypeofItem Types;
+    [SerializeField]
+    public List<TypeofItem> Types;
 
     Camera cam;
+   public int TypesCount;
+
 
     //zoom (item,pos) , OpenClose (isActive,pos)
     public GameObject Item;
@@ -51,18 +55,18 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-       //foreach (var type in Types)
+        for (int i = 0; i < TypesCount; i++)
         {
-            switch (Types)
+            switch (Types[i])
             {
                 case TypeofItem.UiSelectable:
                     if (GetComponent<Image>().sprite != null)
                     {
                         IsActive = !IsActive;
-                        for (int i = 0; i < UiItems.transform.childCount; i++)
+                        for (int j = 0; j < UiItems.transform.childCount; j++)
                         {
-                            if (UiItems.transform.GetChild(i).gameObject != gameObject)
-                                UiItems.transform.GetChild(i).GetComponent<Interactable>().IsActive = false;
+                            if (UiItems.transform.GetChild(j).gameObject != gameObject)
+                                UiItems.transform.GetChild(j).GetComponent<Interactable>().IsActive = false;
                         }
                     }
                     break;
@@ -72,9 +76,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     void OnMouseDown()
     {
-        //foreach(var type in Types)
+        for (int i = 0; i < TypesCount; i++)
         {
-            switch (Types)
+            switch (Types[i])
             {
                 case TypeofItem.Zoomer:
                     cam.orthographicSize = zoom;
@@ -85,11 +89,11 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
                     break;
 
                 case TypeofItem.Collectable:
-                    for (int i = 0; i < UiItems.transform.childCount; i++)
+                    for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
-                        if (UiItems.transform.GetChild(i).GetComponent<Image>().sprite == null)
+                        if (UiItems.transform.GetChild(j).GetComponent<Image>().sprite == null)
                         {
-                            UiItems.transform.GetChild(i).GetComponent<Image>().sprite = GetComponent<SpriteRenderer>().sprite;
+                            UiItems.transform.GetChild(j).GetComponent<Image>().sprite = GetComponent<SpriteRenderer>().sprite;
                             break;
                         }
                     }
@@ -101,9 +105,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
                     if (IsActive)
                     {
-                        for (int i = 0; i < transform.childCount; i++)
+                        for (int j = 0; j < transform.childCount; j++)
                         {
-                            transform.GetChild(i).gameObject.SetActive(true);
+                            transform.GetChild(j).gameObject.SetActive(true);
                         }
                         GetComponent<Collider2D>().offset = pos;
                         if (Item != null)
@@ -111,7 +115,7 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     else
                     {
-                        for (int i = 0; i < transform.childCount; i++)
+                        for (int j = 0; j < transform.childCount; j++)
                         {
                             transform.GetChild(i).gameObject.SetActive(false);
                         }
@@ -138,18 +142,18 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
                     cam.GetComponent<CameraReset>().pos = pos;
                     pos = x;
 
-                    for (int i = 0; i < Objects.transform.childCount; i++)
+                    for (int j = 0; j < Objects.transform.childCount; j++)
                     {
-                        Objects.transform.GetChild(i).GetComponent<Collider2D>().enabled = true;
+                        Objects.transform.GetChild(j).GetComponent<Collider2D>().enabled = true;
                     }
                     break;
 
                 case TypeofItem.PlaceHolder:
-                    for (int i = 0; i < UiItems.transform.childCount; i++)
+                    for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
-                        if (UiItems.transform.GetChild(i).GetComponent<Image>().sprite == GetComponent<SpriteRenderer>().sprite)
+                        if (UiItems.transform.GetChild(j).GetComponent<Image>().sprite == GetComponent<SpriteRenderer>().sprite)
                         {
-                            Item = UiItems.transform.GetChild(i).gameObject;
+                            Item = UiItems.transform.GetChild(j).gameObject;
                             break;
                         }
                     }
@@ -170,9 +174,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        //foreach (var type in Types)
+        for (int i = 0; i <TypesCount; i++)
         {
-            switch (Types)
+            switch (Types[i])
             {
                 case TypeofItem.Zoomer:
 
@@ -181,8 +185,13 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
                 case TypeofItem.Collectable:
                     if (Hidden)
                     {
-                        GetComponent<SpriteRenderer>().enabled = false;
-                        GetComponent<Collider2D>().enabled = false;
+                        var SpriteCollectable = GetComponent<SpriteRenderer>();
+                        if (SpriteCollectable != null)
+                        {
+                            SpriteCollectable.enabled = false;
+                            GetComponent<Collider2D>().enabled = false;
+                        }
+                        
                     }
                     else
                     {
