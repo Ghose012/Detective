@@ -5,48 +5,45 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
 
+internal enum TypeofItem
+{
+    Zoomer,
+    Collectable,
+    UiSelectable,
+    OpenClose,
+    Spin,
+    Navigation,
+    PlaceHolder
+}
+
 [ExecuteInEditMode]
 internal class Interactable : MonoBehaviour, IPointerDownHandler
 {
-    public List<TypeofItem> Types;
+    public TypeofItem Types;
+
+    Camera cam;
 
     //zoom (item,pos) , OpenClose (isActive,pos)
     public GameObject Item;
     public Vector3 pos;
     public bool IsActive;
-    Camera cam;
 
     //zoomer
-    public bool IsZoomer;
     public float zoom;
 
     //Collectable
-    //public bool IsCollectable;
     public bool Hidden;
 
     //Spin
-   // public bool IsSpin;
     public float speed;
     public int Value;
 
     //Navigtion
-   // public bool IsNavigtion;
     public GameObject Objects;
 
     //PlaceHolder
-    //public bool IsPlaceHolder;
     public GameObject UiItems;
 
-    public enum TypeofItem
-    {
-        Zoomer,
-        Collectable,
-        UiSelectable,
-        OpenClose,
-        Spin,
-        Navigation,
-        PlaceHolder
-    }
     void Start()
     {
         cam = Camera.main;
@@ -54,9 +51,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        foreach (var type in Types)
+       //foreach (var type in Types)
         {
-            switch (type)
+            switch (Types)
             {
                 case TypeofItem.UiSelectable:
                     if (GetComponent<Image>().sprite != null)
@@ -75,9 +72,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     void OnMouseDown()
     {
-        foreach(var type in Types)
+        //foreach(var type in Types)
         {
-            switch (type)
+            switch (Types)
             {
                 case TypeofItem.Zoomer:
                     cam.orthographicSize = zoom;
@@ -173,9 +170,9 @@ internal class Interactable : MonoBehaviour, IPointerDownHandler
 
     void Update()
     {
-        foreach (var type in Types)
+        //foreach (var type in Types)
         {
-            switch (type)
+            switch (Types)
             {
                 case TypeofItem.Zoomer:
 
