@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEditor;
 
-internal enum TypeofItem
+public enum TypeofItem
 {
     Zoomer,
     Collectable,
@@ -18,7 +18,7 @@ internal enum TypeofItem
 
 [RequireComponent(typeof(BoxCollider2D))]
 [ExecuteInEditMode]
-internal class Interactable : MonoBehaviour, IPointerDownHandler
+public class Interactable : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     public List<TypeofItem> Types;
