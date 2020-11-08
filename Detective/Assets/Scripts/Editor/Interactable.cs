@@ -13,7 +13,8 @@ public enum TypeofItem
     OpenClose,
     Spin,
     Navigation,
-    PlaceHolder
+    PlaceHolder,
+    Coloring
 }
 
 [RequireComponent(typeof(BoxCollider2D))]
