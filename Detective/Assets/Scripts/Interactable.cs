@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using UnityEditor;
 
 public enum TypeofItem
 {
@@ -28,7 +27,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
    public int TypesCount;
 
 
-    //zoom (item,pos) , OpenClose (isActive,pos)
+    //zoom (item,pos) , OpenClose (isActive,pos,item)
     public GameObject Item;
     public Vector3 pos;
     public bool IsActive;
@@ -36,7 +35,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     //zoomer
     public float zoom;
 
-    //Collectable
+    //Collectable (UiItems)
     public bool Hidden;
 
     //Spin
@@ -48,6 +47,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     //PlaceHolder
     public GameObject UiItems;
+
+    //OpenClose, Spin, Placeholder, Collectable
+    public bool AffectedByZoom;
 
     void Start()
     {
@@ -209,10 +211,13 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     break;
 
                 case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder:
-                    if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
-                        GetComponent<Collider2D>().enabled = false;
-                    if (Camera.main.orthographicSize != 5 && !GetComponent<Collider2D>().enabled)
-                        GetComponent<Collider2D>().enabled = true;
+                    if (AffectedByZoom)
+                    {
+                        if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
+                            GetComponent<Collider2D>().enabled = false;
+                        if (Camera.main.orthographicSize != 5 && !GetComponent<Collider2D>().enabled)
+                            GetComponent<Collider2D>().enabled = true;
+                    }
                     break;
             }
         }
