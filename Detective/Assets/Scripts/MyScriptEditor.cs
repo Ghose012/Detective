@@ -84,6 +84,8 @@ public class MyScriptEditor : Editor
                     SerializedProperty CameraPosition = serializedObject.FindProperty("Destinations");
                     EditorGUILayout.PropertyField( CameraPosition, new GUIContent("My Camera Positions"));
                     serializedObject.ApplyModifiedProperties();
+                    GUILayout.Space(5f);
+                    interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
                     break;
                 #endregion
 
@@ -93,7 +95,25 @@ public class MyScriptEditor : Editor
                     GUILayout.Space(5f);
                     interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
                     break;
-                    #endregion
+                #endregion
+
+                case TypeofItem.Search:
+                    interactable.pos = EditorGUILayout.Vector2Field("pos:", interactable.pos);
+                    GUILayout.Space(5f);
+                    interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
+                    GUILayout.Space(5f);
+                    interactable.Item = (GameObject)EditorGUILayout.ObjectField("Item", interactable.Item, typeof(GameObject), true);
+                   
+                    break;
+
+                case TypeofItem.Coloring:
+                     interactable.Item = (GameObject)EditorGUILayout.ObjectField("Item", interactable.Item, typeof(GameObject), true);
+                    GUILayout.Space(5f);
+                    interactable.ColorTool = (Sprite)EditorGUILayout.ObjectField("ColorToolSprite", interactable.ColorTool, typeof(Sprite),true);
+                    GUILayout.Space(5f);
+                    interactable.colorChoice = EditorGUILayout.ColorField("New Color", interactable.colorChoice);
+
+                    break;
             }
 
             GUILayout.Space(10f);
