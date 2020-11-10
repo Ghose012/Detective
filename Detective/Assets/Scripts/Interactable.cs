@@ -24,9 +24,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public List<TypeofItem> Types;
 
     Camera cam;
-    public int TypesCount;
+   public int TypesCount;
 
-    #region VariablesTypes
+
     //zoom (item,pos) , OpenClose (isActive,pos,item)
     public GameObject Item;
     public Vector3 pos;
@@ -44,10 +44,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     //Navigtion
     public GameObject Objects;
-    public Vector3[] Destinations;
-    public int step;
-  //  public int DestinationCounts;
-
 
     //PlaceHolder
     public GameObject UiItems;
@@ -55,14 +51,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     //OpenClose, Spin, Placeholder, Collectable
     public bool AffectedByZoom;
 
-    #endregion
-
     void Start()
     {
         cam = Camera.main;
     }
-
- 
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -70,7 +62,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
-                #region UiSelectable
                 case TypeofItem.UiSelectable:
                     if (GetComponent<Image>().sprite != null)
                     {
@@ -82,26 +73,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
                     break;
-                #endregion
-
-
-             #region Navigation
-                case TypeofItem.Navigation:
-
-                    //cam.orthographicSize = 5;
-                    foreach (Vector3 CamPos in Destinations)
-                    {
-                        for (int k = 0; k < Destinations.Length; k++)
-                        {
-                            cam.transform.position = Destinations[k] * step;
-                            Debug.Log(Destinations[k]);
-
-                        }
-                    }
-
-                    break;
-                    #endregion
-
             }
         }
     }
@@ -112,7 +83,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
-                #region Zoomer
                 case TypeofItem.Zoomer:
                     cam.orthographicSize = zoom;
                     cam.transform.position = pos;
@@ -120,9 +90,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     if (Item != null)
                         Item.GetComponent<Interactable>().Hidden = false;
                     break;
-                #endregion
 
-                #region Collectable
                 case TypeofItem.Collectable:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
@@ -134,9 +102,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     Destroy(gameObject);
                     break;
-                #endregion
 
-                #region OpenClose
                 case TypeofItem.OpenClose:
                     IsActive = !IsActive;
 
@@ -161,9 +127,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             Item.GetComponent<Interactable>().Hidden = true;
                     }
                     break;
-                #endregion
 
-                #region Spin
                 case TypeofItem.Spin:
                     if (enabled)
                     {
@@ -173,31 +137,20 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             Value = 1;
                     }
                     break;
-                #endregion
 
-                #region Navigation
-              /*  case TypeofItem.Navigation:
-                    //cam.orthographicSize = 5;
-
-                    for (int k=0; k< Destinations.Length; k+=step)
-                    {
-                        if (Destinations[k] == cam.transform.position)
-                        {
-                            Debug.Log("camera pos");
-                            pos = Destinations[k + step];
-                        }
-                    }
+                case TypeofItem.Navigation:
+                    Vector3 x = cam.GetComponent<CameraReset>().pos;
+                    cam.orthographicSize = 5;
                     cam.transform.position = pos;
                     cam.GetComponent<CameraReset>().pos = pos;
+                    pos = x;
 
                     for (int j = 0; j < Objects.transform.childCount; j++)
                     {
                         Objects.transform.GetChild(j).GetComponent<Collider2D>().enabled = true;
                     }
-                    break;*/
-                #endregion
+                    break;
 
-                #region PlaceHolder
                 case TypeofItem.PlaceHolder:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
@@ -218,7 +171,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
                     break;
-                    #endregion
             }
         } 
     }
@@ -229,13 +181,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
-                #region Zoomer
                 case TypeofItem.Zoomer:
 
                     break;
-                #endregion
 
-                #region Collectable
                 case TypeofItem.Collectable:
                     if (Hidden)
                     {
@@ -253,18 +202,14 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         GetComponent<Collider2D>().enabled = true;
                     }
                     break;
-                #endregion
 
-                #region UISelectable
                 case TypeofItem.UiSelectable:
                     if (IsActive && transform.localScale != Vector3.one * 1.2f)
                         transform.localScale *= 1.2f;
                     if (!IsActive && transform.localScale != Vector3.one)
                         transform.localScale = Vector3.one;
                     break;
-                #endregion
 
-                #region OpenClose
                 case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder:
                     if (AffectedByZoom)
                     {
@@ -274,7 +219,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             GetComponent<Collider2D>().enabled = true;
                     }
                     break;
-                    #endregion
             }
         }
     }
