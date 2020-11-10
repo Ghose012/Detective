@@ -13,7 +13,9 @@ public enum TypeofItem
     Spin,
     Navigation,
     PlaceHolder,
-    Coloring
+    Coloring,
+    Search,
+
 }
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -24,10 +26,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public List<TypeofItem> Types;
 
     Camera cam;
-   public int TypesCount;
+    public int TypesCount;
 
-
-    //zoom (item,pos) , OpenClose (isActive,pos,item)
+    #region VariablesTypes
+    //zoom (item,pos) , OpenClose (isActive,pos,item), search(pos), Coloring(item)
     public GameObject Item;
     public Vector3 pos;
     public bool IsActive;
@@ -44,6 +46,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     //Navigtion
     public GameObject Objects;
+    public Vector3[] Destinations;
+    public int step;
+  //  public int DestinationCounts;
+
 
     //PlaceHolder
     public GameObject UiItems;
@@ -51,10 +57,27 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     //OpenClose, Spin, Placeholder, Collectable
     public bool AffectedByZoom;
 
+    //Search
+    Vector3 InitialPos;
+
+    //Coloring
+    public Sprite ColorTool;
+    public Color colorChoice;
+    GameObject Target;
+
+    #endregion
+
     void Start()
     {
         cam = Camera.main;
+        InitialPos = transform.position;
+        Target = Item;
+     
+        
+
     }
+
+ 
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -62,6 +85,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
+                #region UiSelectable
                 case TypeofItem.UiSelectable:
                     if (GetComponent<Image>().sprite != null)
                     {
@@ -73,6 +97,44 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
                     break;
+                #endregion
+
+
+             #region Navigation
+                case TypeofItem.Navigation:
+
+                    cam.orthographicSize = 5;
+
+                    for (int k = 0; k < Destinations.Length; k++)
+                    {
+                        if (cam.transform.position == Destinations[k])
+                        {
+                            if (k + step < 0)
+                            {
+                                cam.transform.position = Destinations[Destinations.Length - 1];
+                                
+                            }
+
+                            else if (k + step < Destinations.Length)
+                            {
+                                cam.transform.position = Destinations[k + step];
+
+                            }
+                            else
+                            {
+                                cam.transform.position = Destinations[0];
+                            }
+                            cam.GetComponent<CameraReset>().pos = cam.transform.position;
+                            break;
+
+                        }
+
+                    }
+
+
+                    break;
+                    #endregion
+
             }
         }
     }
@@ -83,6 +145,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
+                #region Zoomer
                 case TypeofItem.Zoomer:
                     cam.orthographicSize = zoom;
                     cam.transform.position = pos;
@@ -90,7 +153,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     if (Item != null)
                         Item.GetComponent<Interactable>().Hidden = false;
                     break;
+                #endregion
 
+                #region Collectable
                 case TypeofItem.Collectable:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
@@ -102,7 +167,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     Destroy(gameObject);
                     break;
+                #endregion
 
+                #region OpenClose
                 case TypeofItem.OpenClose:
                     IsActive = !IsActive;
 
@@ -127,7 +194,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             Item.GetComponent<Interactable>().Hidden = true;
                     }
                     break;
+                #endregion
 
+                #region Spin
                 case TypeofItem.Spin:
                     if (enabled)
                     {
@@ -137,20 +206,31 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             Value = 1;
                     }
                     break;
+                #endregion
 
-                case TypeofItem.Navigation:
-                    Vector3 x = cam.GetComponent<CameraReset>().pos;
-                    cam.orthographicSize = 5;
+                #region Navigation
+              /*  case TypeofItem.Navigation:
+                    //cam.orthographicSize = 5;
+
+                    for (int k=0; k< Destinations.Length; k+=step)
+                    {
+                        if (Destinations[k] == cam.transform.position)
+                        {
+                            Debug.Log("camera pos");
+                            pos = Destinations[k + step];
+                        }
+                    }
                     cam.transform.position = pos;
                     cam.GetComponent<CameraReset>().pos = pos;
-                    pos = x;
 
                     for (int j = 0; j < Objects.transform.childCount; j++)
                     {
                         Objects.transform.GetChild(j).GetComponent<Collider2D>().enabled = true;
                     }
-                    break;
+                    break;*/
+                #endregion
 
+                #region PlaceHolder
                 case TypeofItem.PlaceHolder:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
@@ -161,7 +241,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
 
-                    if (Item != null)
+                    if (Item != null && Item.GetComponent<Image>().sprite!=ColorTool)
                     {
                         if (Item.GetComponent<Interactable>().IsActive)
                         {
@@ -171,6 +251,78 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
                     break;
+                #endregion
+
+                #region Search
+                case TypeofItem.Search:
+                    if (transform.position == InitialPos)
+                    {
+                        transform.position = new Vector3(pos.x+0.01634528f, pos.y+1.496316f, 0f);
+                       
+                        if (Item != null)
+                            Item.GetComponent<Interactable>().Hidden = false;
+                    }
+                    else
+                    {
+                        transform.position = InitialPos;
+                        if (Item != null)
+                            Item.GetComponent<Interactable>().Hidden = true;
+                    }
+                        break;
+                #endregion
+
+                #region Coloring
+                case TypeofItem.Coloring:
+                    for (int j = 0; j < UiItems.transform.childCount; j++)
+                    {
+                        if (UiItems.transform.GetChild(j).GetComponent<Image>().sprite == ColorTool)
+                        {
+                            Item = UiItems.transform.GetChild(j).gameObject;
+                            break;
+                        }
+                    }
+
+                    if (Item != null)
+                    {
+                        Color cyan= new Color(0,0, 1, 1);
+                        Color magenta= new Color(1, 0f, 0.2470588f, 1);
+                        Color yellow = new Color(1, 0.7529412f, 0, 1);
+
+                        if (Item.GetComponent<Interactable>().IsActive)
+                        {
+                            Debug.Log(colorChoice);
+                            if(Target.GetComponent<SpriteRenderer>().color==cyan)
+                            {
+                                Target.GetComponent<SpriteRenderer>().color *=  colorChoice;
+
+                            }
+                            else if (Target.GetComponent<SpriteRenderer>().color == Color.white)
+                            {
+                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
+
+                            }
+                            else if (Target.GetComponent<SpriteRenderer>().color == magenta)
+                            {
+                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
+
+                            }
+                            else if (Target.GetComponent<SpriteRenderer>().color == yellow)
+                            {
+                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
+
+                            }
+                            else
+                            {
+                                Target.GetComponent<SpriteRenderer>().color = colorChoice;
+
+                            }
+
+                        }
+                    }
+
+                    break;
+                    #endregion
+
             }
         } 
     }
@@ -181,10 +333,13 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         {
             switch (Types[i])
             {
+                #region Zoomer
                 case TypeofItem.Zoomer:
 
                     break;
+                #endregion
 
+                #region Collectable
                 case TypeofItem.Collectable:
                     if (Hidden)
                     {
@@ -202,15 +357,19 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         GetComponent<Collider2D>().enabled = true;
                     }
                     break;
+                #endregion
 
+                #region UISelectable
                 case TypeofItem.UiSelectable:
                     if (IsActive && transform.localScale != Vector3.one * 1.2f)
                         transform.localScale *= 1.2f;
                     if (!IsActive && transform.localScale != Vector3.one)
                         transform.localScale = Vector3.one;
                     break;
+                #endregion
 
-                case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder:
+                #region AffectedByZoom
+                case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder: case TypeofItem.Search:
                     if (AffectedByZoom)
                     {
                         if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
@@ -219,6 +378,26 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             GetComponent<Collider2D>().enabled = true;
                     }
                     break;
+                #endregion
+
+                #region Navigation
+                case TypeofItem.Navigation:
+                    if (AffectedByZoom)
+                    {
+                        if (Camera.main.orthographicSize != 5 && GetComponent<Collider2D>().enabled && GetComponent<Image>().enabled)
+                        {
+                            GetComponent<Collider2D>().enabled = false;
+                            GetComponent<Image>().enabled = false;
+                        }
+                        if (Camera.main.orthographicSize == 5 && !GetComponent<Collider2D>().enabled && !GetComponent<Image>().enabled)
+                        {
+                            GetComponent<Collider2D>().enabled = true;
+                            GetComponent<Image>().enabled = true;
+                        }
+
+                    }
+                    break;
+                    #endregion
             }
         }
     }
