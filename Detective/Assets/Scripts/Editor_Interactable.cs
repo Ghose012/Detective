@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 
 [CustomEditor(typeof(Interactable))]
-public class MyScriptEditor : Editor
+public class Editor_Interactable : Editor
 {
 
     public override void OnInspectorGUI()
