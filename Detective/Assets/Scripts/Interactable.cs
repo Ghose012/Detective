@@ -64,6 +64,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public Sprite ColorTool;
     public Color colorChoice;
     GameObject Target;
+    GameObject ColorBuckets;
 
     #endregion
 
@@ -72,9 +73,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         cam = Camera.main;
         InitialPos = transform.position;
         Target = Item;
-     
-        
-
+        UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
+        ColorBuckets = GameObject.Find("Change").transform.Find("Paint PlaceHolders").gameObject;
     }
 
  
@@ -284,39 +284,21 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                     if (Item != null)
                     {
-                        Color cyan= new Color(0,0, 1, 1);
-                        Color magenta= new Color(1, 0f, 0.2470588f, 1);
-                        Color yellow = new Color(1, 0.7529412f, 0, 1);
-
                         if (Item.GetComponent<Interactable>().IsActive)
                         {
-                            Debug.Log(colorChoice);
-                            if(Target.GetComponent<SpriteRenderer>().color==cyan)
+                            bool changed = false;
+                            for (int j = 0; j < ColorBuckets.transform.childCount; j++)
                             {
-                                Target.GetComponent<SpriteRenderer>().color *=  colorChoice;
-
+                                Color c = ColorBuckets.transform.GetChild(j).GetComponent<Interactable>().colorChoice;
+                                if (Target.GetComponent<SpriteRenderer>().color == c)
+                                {
+                                    Target.GetComponent<SpriteRenderer>().color *= colorChoice;
+                                    changed = true;
+                                    break;
+                                }
                             }
-                            else if (Target.GetComponent<SpriteRenderer>().color == Color.white)
-                            {
-                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
-
-                            }
-                            else if (Target.GetComponent<SpriteRenderer>().color == magenta)
-                            {
-                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
-
-                            }
-                            else if (Target.GetComponent<SpriteRenderer>().color == yellow)
-                            {
-                                Target.GetComponent<SpriteRenderer>().color *= colorChoice;
-
-                            }
-                            else
-                            {
+                            if (!changed)
                                 Target.GetComponent<SpriteRenderer>().color = colorChoice;
-
-                            }
-
                         }
                     }
 
