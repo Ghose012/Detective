@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+
 
 public enum TypeofObjective
 {
@@ -15,7 +19,7 @@ public class Objectives : MonoBehaviour
 {
     [SerializeField]
     public List<TypeofObjective> Types;
-    public int TypesCount;
+    public int TypesCkeckCount;
 
     //ColoringPuzzle, SpinCheck
     public GameObject Item;
@@ -23,6 +27,8 @@ public class Objectives : MonoBehaviour
 
     //ColoringPuzzle
     public Color DesiredColor;
+    //ColoringPuzzle , key
+    public Sprite ColorTool;
 
     //SpinCheck
     public GameObject[] Hands;
@@ -32,22 +38,66 @@ public class Objectives : MonoBehaviour
     public GameObject[] PlaceHolders;
 
     //Key
-    public Objectives[] objectives;
+    public Objectives[] AllObjectives;
+    public GameObject UiItems;
+    public Sprite Open;
+    public GameObject KeyOpen;
+    public bool finished;
+    GameObject item;
+
+
 
     void Start()
     {
         //still need to disable interactable script from objects related to a completed puzzle
-    }
+        UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
+        finished = false;
 
-    void Update()
+
+    }
+  
+
+
+    public void OnMouseDown()
     {
-        for (int i = 0; i < TypesCount; i++)
+        for (int i = 0; i < TypesCkeckCount; i++)
         {
             switch (Types[i])
             {
+                #region key
+               case TypeofObjective.Key:
+                    
+                  if (item != null)
+                    {
+                        if (item.GetComponent<Interactable>().IsActive)
+                        {
+                            item.GetComponent<Image>().sprite = null;
+                            item.GetComponent<Interactable>().IsActive = false;                     
+                            SceneManager.LoadScene(0);
+
+                        }
+                    }
+                   
+                    break;
+                    #endregion
+
+            }
+        }
+    }
+
+
+
+
+    void Update()
+    {
+        for (int i = 0; i < TypesCkeckCount; i++)
+        {
+            switch (Types[i])
+            {
+                #region SpinCheck
                 case TypeofObjective.SpinCheck:
                     int x = 0;
-                    for(int j = 0; j < Hands.Length; j++)
+                    for (int j = 0; j < Hands.Length; j++)
                     {
                         if (Hands[j].GetComponent<Interactable>().Value == Time[j])
                             x++;
@@ -58,7 +108,9 @@ public class Objectives : MonoBehaviour
                     if (Item != null)
                         Item.GetComponent<Interactable>().Hidden = false;
                     break;
+                #endregion
 
+                #region SlotPuzzle
                 case TypeofObjective.SlotPuzzle:
                     int o = 0;
                     for (int j = 0; j < PlaceHolders.Length; j++)
@@ -66,34 +118,50 @@ public class Objectives : MonoBehaviour
                         if (PlaceHolders[j].GetComponent<SpriteRenderer>().enabled)
                             o++;
                     }
-                    if (o == PlaceHolders.Length)
-                        IsComplete = true;
+                    /* if (o == PlaceHolders.Length)
+                         IsComplete = true;*/
 
                     if (Item != null)
                         Item.GetComponent<Interactable>().Hidden = false;
                     break;
+                #endregion
 
+                #region Coloring
                 case TypeofObjective.ColoringPuzzle:
                     if (Item.GetComponent<SpriteRenderer>().color == DesiredColor)
+                    {
                         IsComplete = true;
+                    }
+                  
 
-                    if (Item != null)
-                        Item.GetComponent<Interactable>().Hidden = false;
                     break;
+                #endregion
 
+                #region key
                 case TypeofObjective.Key:
-                    int s = 0;
-                    for (int j = 0; j < objectives.Length; j++)
+
+                    for (int j = 0; j < AllObjectives.Length; j++)
                     {
-                        if (objectives[j].IsComplete)
-                            s++;
+                        if (AllObjectives[j].IsComplete)
+                        {
+                            KeyOpen.GetComponent<Interactable>().Hidden = false;
+                        }
+
                     }
-                    if (s == objectives.Length)
+                      for (int a = 0; a < UiItems.transform.childCount; a++)
                     {
-                        //Give Key to open door and win case
+                        if (UiItems.transform.GetChild(i).GetComponent<Image>().sprite == Open)
+                        {
+                            finished = true;
+                            item = UiItems.transform.GetChild(i).gameObject;
+
+                        }
                     }
+                       
                     break;
+                    #endregion
             }
         }
     }
+
 }

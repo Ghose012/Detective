@@ -165,7 +165,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             break;
                         }
                     }
-                    Destroy(gameObject);
+                    // Destroy(gameObject);
+                    gameObject.SetActive(false);
                     break;
                 #endregion
 
@@ -208,28 +209,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     break;
                 #endregion
 
-                #region Navigation
-              /*  case TypeofItem.Navigation:
-                    //cam.orthographicSize = 5;
-
-                    for (int k=0; k< Destinations.Length; k+=step)
-                    {
-                        if (Destinations[k] == cam.transform.position)
-                        {
-                            Debug.Log("camera pos");
-                            pos = Destinations[k + step];
-                        }
-                    }
-                    cam.transform.position = pos;
-                    cam.GetComponent<CameraReset>().pos = pos;
-
-                    for (int j = 0; j < Objects.transform.childCount; j++)
-                    {
-                        Objects.transform.GetChild(j).GetComponent<Collider2D>().enabled = true;
-                    }
-                    break;*/
-                #endregion
-
+              
                 #region PlaceHolder
                 case TypeofItem.PlaceHolder:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
@@ -282,7 +262,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
 
-                    if (Item != null)
+                  if (Item != null)
                     {
                         if (Item.GetComponent<Interactable>().IsActive)
                         {
@@ -297,8 +277,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                                     break;
                                 }
                             }
+
                             if (!changed)
-                                Target.GetComponent<SpriteRenderer>().color = colorChoice;
+                            { Target.GetComponent<SpriteRenderer>().color = colorChoice; }
+
                         }
                     }
 

@@ -97,23 +97,25 @@ public class Editor_Interactable : Editor
                     break;
                 #endregion
 
+                #region search
                 case TypeofItem.Search:
                     interactable.pos = EditorGUILayout.Vector2Field("pos:", interactable.pos);
                     GUILayout.Space(5f);
                     interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
                     GUILayout.Space(5f);
                     interactable.Item = (GameObject)EditorGUILayout.ObjectField("Item", interactable.Item, typeof(GameObject), true);
-                   
                     break;
+                #endregion
 
+                #region coloring
                 case TypeofItem.Coloring:
                      interactable.Item = (GameObject)EditorGUILayout.ObjectField("Item", interactable.Item, typeof(GameObject), true);
                     GUILayout.Space(5f);
                     interactable.ColorTool = (Sprite)EditorGUILayout.ObjectField("ColorToolSprite", interactable.ColorTool, typeof(Sprite),true);
                     GUILayout.Space(5f);
-                    interactable.colorChoice = EditorGUILayout.ColorField("New Color", interactable.colorChoice);
-
+                    interactable.colorChoice = EditorGUILayout.ColorField("wall color", interactable.colorChoice);
                     break;
+                    #endregion
             }
 
             GUILayout.Space(10f);
