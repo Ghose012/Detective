@@ -44,6 +44,7 @@ public class Objectives : MonoBehaviour
     public GameObject KeyOpen;
     public bool finished;
     GameObject item;
+    public int indexScene;
 
 
 
@@ -54,8 +55,9 @@ public class Objectives : MonoBehaviour
         finished = false;
 
 
+
     }
-  
+
 
 
     public void OnMouseDown()
@@ -65,19 +67,20 @@ public class Objectives : MonoBehaviour
             switch (Types[i])
             {
                 #region key
-               case TypeofObjective.Key:
-                    
-                  if (item != null)
+                case TypeofObjective.Key:
+                    if (item != null)
                     {
+
                         if (item.GetComponent<Interactable>().IsActive)
                         {
+                            
                             item.GetComponent<Image>().sprite = null;
-                            item.GetComponent<Interactable>().IsActive = false;                     
-                            SceneManager.LoadScene(0);
+                            item.GetComponent<Interactable>().IsActive = false;
+                            SceneManager.LoadScene(indexScene);
+
 
                         }
                     }
-                   
                     break;
                     #endregion
 
@@ -132,10 +135,11 @@ public class Objectives : MonoBehaviour
                     {
                         IsComplete = true;
                     }
-                  
 
                     break;
                 #endregion
+
+
 
                 #region key
                 case TypeofObjective.Key:
@@ -145,19 +149,24 @@ public class Objectives : MonoBehaviour
                         if (AllObjectives[j].IsComplete)
                         {
                             KeyOpen.GetComponent<Interactable>().Hidden = false;
+
                         }
 
                     }
-                      for (int a = 0; a < UiItems.transform.childCount; a++)
+
+                    for (int a = 0; a < UiItems.transform.childCount; a++)
                     {
-                        if (UiItems.transform.GetChild(i).GetComponent<Image>().sprite == Open)
+
+                        if (UiItems.transform.GetChild(a).GetComponent<Image>().sprite == Open)
                         {
                             finished = true;
-                            item = UiItems.transform.GetChild(i).gameObject;
+                            item = UiItems.transform.GetChild(a).gameObject;
 
                         }
+                        Debug.Log(finished);
+
                     }
-                       
+
                     break;
                     #endregion
             }

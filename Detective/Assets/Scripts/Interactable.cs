@@ -15,6 +15,7 @@ public enum TypeofItem
     PlaceHolder,
     Coloring,
     Search,
+    InputPuzzle,
 
 }
 
@@ -65,6 +66,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public Color colorChoice;
     GameObject Target;
     GameObject ColorBuckets;
+
+    //Input
+    public string RightAnswer;
+    public InputField MyInput;
+    public GameObject CanvasIn;
+
 
     #endregion
 
@@ -208,7 +215,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 #endregion
-
               
                 #region PlaceHolder
                 case TypeofItem.PlaceHolder:
@@ -237,7 +243,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 case TypeofItem.Search:
                     if (transform.position == InitialPos)
                     {
-                        transform.position = new Vector3(pos.x+0.01634528f, pos.y+1.496316f, 0f);
+                        transform.position = new Vector3(pos.x, pos.y, 0f);
                        
                         if (Item != null)
                             Item.GetComponent<Interactable>().Hidden = false;
@@ -263,7 +269,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
 
                   if (Item != null)
-                    {
+                   {
                         if (Item.GetComponent<Interactable>().IsActive)
                         {
                             bool changed = false;
@@ -284,6 +290,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
 
+                    break;
+                #endregion
+
+                #region Input
+                case TypeofItem.InputPuzzle:
+                    CanvasIn.SetActive(true);
                     break;
                     #endregion
 
@@ -333,7 +345,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 #endregion
 
                 #region AffectedByZoom
-                case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder: case TypeofItem.Search:
+                case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder: case TypeofItem.Search: 
+               
                     if (AffectedByZoom)
                     {
                         if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
@@ -343,7 +356,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 #endregion
-
+               
                 #region Navigation
                 case TypeofItem.Navigation:
                     if (AffectedByZoom)
@@ -361,7 +374,22 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                     }
                     break;
-                    #endregion
+                #endregion
+
+                #region Input
+                   case TypeofItem.InputPuzzle:
+
+                       if (RightAnswer.ToString() == MyInput.text)
+                       {
+                           
+                           MyInput.DeactivateInputField();
+                           Item.SetActive(true);
+                        
+                       }
+
+                       break;
+                #endregion
+
             }
         }
     }

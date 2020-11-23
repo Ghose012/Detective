@@ -1,5 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [CustomEditor(typeof(Objectives))]
 public class Editor_Objectives : Editor
@@ -58,6 +60,7 @@ public class Editor_Objectives : Editor
                     break;
                 #endregion
 
+              
                 #region Key
                 case TypeofObjective.Key:
                     SerializedProperty Allobjectives = serializedObject.FindProperty("AllObjectives");
@@ -67,6 +70,7 @@ public class Editor_Objectives : Editor
                     objective.Open = (Sprite)EditorGUILayout.ObjectField("Key Sprite", objective.Open, typeof(Sprite), true);
                     objective.UiItems = (GameObject)EditorGUILayout.ObjectField("UiItems", objective.UiItems, typeof(GameObject), true);
                     objective.KeyOpen = (GameObject)EditorGUILayout.ObjectField("KeyItem", objective.KeyOpen, typeof(GameObject), true);
+                    objective.indexScene = EditorGUILayout.IntField("index scene: ", objective.indexScene);
 
                     break;
                 #endregion

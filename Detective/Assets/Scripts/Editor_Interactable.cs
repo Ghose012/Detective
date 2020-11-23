@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 
@@ -99,7 +100,7 @@ public class Editor_Interactable : Editor
 
                 #region search
                 case TypeofItem.Search:
-                    interactable.pos = EditorGUILayout.Vector2Field("pos:", interactable.pos);
+                    interactable.pos = EditorGUILayout.Vector3Field("pos:", interactable.pos);
                     GUILayout.Space(5f);
                     interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
                     GUILayout.Space(5f);
@@ -114,6 +115,17 @@ public class Editor_Interactable : Editor
                     interactable.ColorTool = (Sprite)EditorGUILayout.ObjectField("ColorToolSprite", interactable.ColorTool, typeof(Sprite),true);
                     GUILayout.Space(5f);
                     interactable.colorChoice = EditorGUILayout.ColorField("wall color", interactable.colorChoice);
+                    break;
+                #endregion
+
+                #region Input
+                case TypeofItem.InputPuzzle:
+                    interactable.RightAnswer = EditorGUILayout.TextField("right answer ", interactable.RightAnswer);
+                    interactable.MyInput = (InputField)EditorGUILayout.ObjectField("player Answer", interactable.MyInput, typeof(InputField), true);
+                    interactable.Item = (GameObject)EditorGUILayout.ObjectField("ItemHidden", interactable.Item, typeof(GameObject), true);
+                    interactable.CanvasIn = (GameObject)EditorGUILayout.ObjectField("CanvasIn", interactable.CanvasIn, typeof(GameObject), true);
+
+
                     break;
                     #endregion
             }

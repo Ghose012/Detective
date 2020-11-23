@@ -54,3 +54,12 @@ TagManager:
   - name: Interactable
     uniqueID: 412569383
     locked: 0
+  - name: other
+    uniqueID: 188674029
+    locked: 0
+  - name: New Layer
+    uniqueID: 2772991277
+    locked: 0
+  - name: New Layer
+    uniqueID: 3314182277
+    locked: 0
