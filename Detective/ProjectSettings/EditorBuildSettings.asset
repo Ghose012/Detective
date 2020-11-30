@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Case1/DialogueCase1.unity
     guid: ec6da0b2886474345a256db7abecc955
   - enabled: 1
-    path: Assets/Scenes/Case1/Case1-Part1.unity
+    path: Assets/Scenes/Case1/Part1.unity
     guid: 59c80ac943121854d9ea9782626ad648
   - enabled: 1
     path: Assets/Scenes/Case1/Case1- FlashBack.unity
