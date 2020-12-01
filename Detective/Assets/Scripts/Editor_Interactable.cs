@@ -60,6 +60,8 @@ public class Editor_Interactable : Editor
                     interactable.AffectedByZoom = EditorGUILayout.Toggle("AffectedByZoom:", interactable.AffectedByZoom);
                     GUILayout.Space(5f);
                     interactable.Item = (GameObject)EditorGUILayout.ObjectField("Item", interactable.Item, typeof(GameObject), true);
+                    GUILayout.Space(5f);
+                    interactable.Locked = EditorGUILayout.Toggle("Locked", interactable.Locked);
                     break;
                 #endregion
 

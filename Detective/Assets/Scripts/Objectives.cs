@@ -73,12 +73,19 @@ public class Objectives : MonoBehaviour
 
                         if (item.GetComponent<Interactable>().IsActive)
                         {
-                            
-                            item.GetComponent<Image>().sprite = null;
-                            item.GetComponent<Interactable>().IsActive = false;
-                            SceneManager.LoadScene(indexScene);
-
-
+                            if(item.name == "Door")
+                            {
+                                item.GetComponent<Image>().sprite = null;
+                                item.GetComponent<Interactable>().IsActive = false;
+                                SceneManager.LoadScene(indexScene);
+                            }
+                            else
+                            {
+                                item.GetComponent<Image>().sprite = null;
+                                item.GetComponent<Interactable>().IsActive = false;
+                                GetComponent<Interactable>().Locked = false;
+                                GetComponent<Interactable>().Openning();
+                            }
                         }
                     }
                     break;
@@ -138,8 +145,6 @@ public class Objectives : MonoBehaviour
 
                     break;
                 #endregion
-
-
 
                 #region key
                 case TypeofObjective.Key:

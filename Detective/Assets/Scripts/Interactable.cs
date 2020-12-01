@@ -49,7 +49,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public GameObject Objects;
     public Vector3[] Destinations;
     public int step;
-  //  public int DestinationCounts;
+    //  public int DestinationCounts;
 
 
     //PlaceHolder
@@ -72,6 +72,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public InputField MyInput;
     public GameObject CanvasIn;
 
+    //OpenClose 
+    public bool Locked;
 
     #endregion
 
@@ -81,10 +83,11 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         InitialPos = transform.position;
         Target = Item;
         UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
-        ColorBuckets = GameObject.Find("Change").transform.Find("Paint PlaceHolders").gameObject;
+        if(ColorTool != null)
+            ColorBuckets = GameObject.Find("Change").transform.Find("Paint PlaceHolders").gameObject;
     }
 
- 
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -107,7 +110,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 #endregion
 
 
-             #region Navigation
+                #region Navigation
                 case TypeofItem.Navigation:
 
                     cam.orthographicSize = 5;
@@ -119,7 +122,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             if (k + step < 0)
                             {
                                 cam.transform.position = Destinations[Destinations.Length - 1];
-                                
+
                             }
 
                             else if (k + step < Destinations.Length)
@@ -146,12 +149,63 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         }
     }
 
+    public void Openning()
+    {
+        if (!Locked)
+        {
+            IsActive = !IsActive;
+
+            if (IsActive)
+            {
+                for (int j = 0; j < transform.childCount; j++)
+                {
+                    if (transform.GetChild(j).gameObject.GetComponent<Interactable>() != null && GetComponent<SpriteRenderer>() != null)
+                    {
+                        if (GetComponent<SpriteRenderer>().enabled)
+                        {
+                            transform.GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                    else
+                        transform.GetChild(j).gameObject.SetActive(true);
+                }
+                GetComponent<Collider2D>().offset = pos;
+                if (Item != null)
+                    Item.GetComponent<Interactable>().Hidden = false;
+            }
+            else
+            {
+                for (int j = 0; j < transform.childCount; j++)
+                {
+                    if (transform.GetChild(j).gameObject.GetComponent<Interactable>() != null && GetComponent<SpriteRenderer>() != null)
+                    {
+                        if (GetComponent<SpriteRenderer>().enabled)
+                        {
+
+                        }
+                    }
+                    else
+                        transform.GetChild(j).gameObject.SetActive(false);
+                }
+                GetComponent<Collider2D>().offset = Vector2.zero;
+                if (Item != null)
+                    Item.GetComponent<Interactable>().Hidden = true;
+            }
+        }
+    }
+
     void OnMouseDown()
     {
         for (int i = 0; i < TypesCount; i++)
         {
             switch (Types[i])
             {
+                #region Input
+                case TypeofItem.InputPuzzle:
+                    CanvasIn.SetActive(true);
+                    break;
+                #endregion
+
                 #region Zoomer
                 case TypeofItem.Zoomer:
                     cam.orthographicSize = zoom;
@@ -179,28 +233,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region OpenClose
                 case TypeofItem.OpenClose:
-                    IsActive = !IsActive;
-
-                    if (IsActive)
-                    {
-                        for (int j = 0; j < transform.childCount; j++)
-                        {
-                            transform.GetChild(j).gameObject.SetActive(true);
-                        }
-                        GetComponent<Collider2D>().offset = pos;
-                        if (Item != null)
-                            Item.GetComponent<Interactable>().Hidden = false;
-                    }
-                    else
-                    {
-                        for (int j = 0; j < transform.childCount; j++)
-                        {
-                            transform.GetChild(i).gameObject.SetActive(false);
-                        }
-                        GetComponent<Collider2D>().offset = Vector2.zero;
-                        if (Item != null)
-                            Item.GetComponent<Interactable>().Hidden = true;
-                    }
+                    Openning();
                     break;
                 #endregion
 
@@ -215,7 +248,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 #endregion
-              
+
                 #region PlaceHolder
                 case TypeofItem.PlaceHolder:
                     for (int j = 0; j < UiItems.transform.childCount; j++)
@@ -227,15 +260,33 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
 
-                    if (Item != null && Item.GetComponent<Image>().sprite!=ColorTool)
+                    if (ColorTool != null)
                     {
-                        if (Item.GetComponent<Interactable>().IsActive)
+                        if (Item != null && Item.GetComponent<Image>().sprite != ColorTool)
                         {
-                            GetComponent<SpriteRenderer>().enabled = true;
-                            Item.GetComponent<Image>().sprite = null;
-                            Item.GetComponent<Interactable>().IsActive = false;
+                            if (Item.GetComponent<Interactable>().IsActive)
+                            {
+                                GetComponent<SpriteRenderer>().enabled = true;
+                                Item.GetComponent<Image>().sprite = null;
+                                Item.GetComponent<Interactable>().IsActive = false;
+                            }
                         }
                     }
+                    else
+                    {
+                        if (Item != null)
+                        {
+                            if (Item.GetComponent<Interactable>().IsActive)
+                            {
+                                GetComponent<SpriteRenderer>().enabled = true;
+                                Item.GetComponent<Image>().sprite = null;
+                                Item.GetComponent<Interactable>().IsActive = false;
+                            }
+                            if (GetComponent<Interactable>().Types[1] == TypeofItem.OpenClose)
+                                Openning();
+                        }
+                    }
+                    
                     break;
                 #endregion
 
@@ -244,7 +295,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     if (transform.position == InitialPos)
                     {
                         transform.position = new Vector3(pos.x, pos.y, 0f);
-                       
+
                         if (Item != null)
                             Item.GetComponent<Interactable>().Hidden = false;
                     }
@@ -254,7 +305,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         if (Item != null)
                             Item.GetComponent<Interactable>().Hidden = true;
                     }
-                        break;
+                    break;
                 #endregion
 
                 #region Coloring
@@ -268,8 +319,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         }
                     }
 
-                  if (Item != null)
-                   {
+                    if (Item != null)
+                    {
                         if (Item.GetComponent<Interactable>().IsActive)
                         {
                             bool changed = false;
@@ -292,20 +343,13 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                     break;
                 #endregion
-
-                #region Input
-                case TypeofItem.InputPuzzle:
-                    CanvasIn.SetActive(true);
-                    break;
-                    #endregion
-
             }
-        } 
+        }
     }
 
     void Update()
     {
-        for (int i = 0; i <TypesCount; i++)
+        for (int i = 0; i < TypesCount; i++)
         {
             switch (Types[i])
             {
@@ -325,7 +369,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             SpriteCollectable.enabled = false;
                             GetComponent<Collider2D>().enabled = false;
                         }
-                        
+
                     }
                     else
                     {
@@ -345,8 +389,11 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 #endregion
 
                 #region AffectedByZoom
-                case TypeofItem.OpenClose: case TypeofItem.Spin: case TypeofItem.PlaceHolder: case TypeofItem.Search: 
-               
+                case TypeofItem.OpenClose:
+                case TypeofItem.Spin:
+                case TypeofItem.PlaceHolder:
+                case TypeofItem.Search:
+
                     if (AffectedByZoom)
                     {
                         if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
@@ -356,7 +403,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 #endregion
-               
+
                 #region Navigation
                 case TypeofItem.Navigation:
                     if (AffectedByZoom)
@@ -377,18 +424,17 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 #endregion
 
                 #region Input
-                   case TypeofItem.InputPuzzle:
+                case TypeofItem.InputPuzzle:
 
-                       if (RightAnswer.ToString() == MyInput.text)
-                       {
-                           
-                           MyInput.DeactivateInputField();
-                           Item.SetActive(true);
-                        
-                       }
+                    if (RightAnswer.ToString() == MyInput.text)
+                    {
+                        MyInput.DeactivateInputField();
+                        Item.SetActive(true);
+                        CanvasIn.SetActive(false);
+                    }
 
-                       break;
-                #endregion
+                    break;
+                    #endregion
 
             }
         }
