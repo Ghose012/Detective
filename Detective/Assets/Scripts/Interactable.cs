@@ -171,7 +171,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 }
                 GetComponent<Collider2D>().offset = pos;
                 if (Item != null)
-                    Item.GetComponent<Interactable>().Hidden = false;
+                {
+                    if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                        Item.GetComponent<Interactable>().Hidden = false;
+                    else
+                        Item.SetActive(true);
+                }
             }
             else
             {
@@ -189,7 +194,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 }
                 GetComponent<Collider2D>().offset = Vector2.zero;
                 if (Item != null)
-                    Item.GetComponent<Interactable>().Hidden = true;
+                {
+                    if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                        Item.GetComponent<Interactable>().Hidden = true;
+                    else
+                        Item.SetActive(false);
+                }
             }
         }
     }
@@ -212,7 +222,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     cam.transform.position = pos;
                     GetComponent<Collider2D>().enabled = false;
                     if (Item != null)
-                        Item.GetComponent<Interactable>().Hidden = false;
+                    {
+                        if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                            Item.GetComponent<Interactable>().Hidden = false;
+                        else
+                            Item.SetActive(true);
+                    }
                     break;
                 #endregion
 
@@ -226,8 +241,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             break;
                         }
                     }
-                    // Destroy(gameObject);
-                    gameObject.SetActive(false);
+                    Destroy(gameObject);
                     break;
                 #endregion
 
@@ -241,9 +255,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 case TypeofItem.Spin:
                     if (enabled)
                     {
-                        transform.Rotate(0, 0, -speed);
+                        transform.Rotate(0, 0, -(360/speed));
                         Value++;
-                        if (Value > 12)
+                        if (Value > speed)
                             Value = 1;
                     }
                     break;
@@ -397,7 +411,12 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     if (AffectedByZoom)
                     {
                         if (Camera.main.orthographicSize == 5 && GetComponent<Collider2D>().enabled)
+                        {
                             GetComponent<Collider2D>().enabled = false;
+                            if (GetComponent<Interactable>().Types[0] == TypeofItem.OpenClose && IsActive)
+                                Openning();
+                        }
+                            
                         if (Camera.main.orthographicSize != 5 && !GetComponent<Collider2D>().enabled)
                             GetComponent<Collider2D>().enabled = true;
                     }

@@ -113,10 +113,16 @@ public class Objectives : MonoBehaviour
                             x++;
                     }
                     if (x == Hands.Length)
+                    {
                         IsComplete = true;
-
-                    if (Item != null)
-                        Item.GetComponent<Interactable>().Hidden = false;
+                        if (Item != null)
+                        {
+                            if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                                Item.GetComponent<Interactable>().Hidden = false;
+                            else
+                                Item.SetActive(true);
+                        }
+                    }     
                     break;
                 #endregion
 
