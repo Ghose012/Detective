@@ -172,10 +172,19 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 GetComponent<Collider2D>().offset = pos;
                 if (Item != null)
                 {
-                    if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
-                        Item.GetComponent<Interactable>().Hidden = false;
+                    if(Item.GetComponent<Interactable>() != null)
+                    {
+                        if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                            Item.GetComponent<Interactable>().Hidden = false;
+                        else
+                            Item.SetActive(true);
+                    }
                     else
+                    {
                         Item.SetActive(true);
+                        Locked = true;
+                    }
+                        
                 }
             }
             else
@@ -265,6 +274,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region PlaceHolder
                 case TypeofItem.PlaceHolder:
+                    GameObject tmpitem = Item;
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
                         if (UiItems.transform.GetChild(j).GetComponent<Image>().sprite == GetComponent<SpriteRenderer>().sprite)
@@ -297,7 +307,10 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                                 Item.GetComponent<Interactable>().IsActive = false;
                             }
                             if (GetComponent<Interactable>().Types[1] == TypeofItem.OpenClose)
+                            {
+                                Item = tmpitem;
                                 Openning();
+                            }     
                         }
                     }
                     
