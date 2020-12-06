@@ -42,10 +42,11 @@ public class Objectives : MonoBehaviour
     public GameObject UiItems;
     public Sprite Open;
     public GameObject KeyOpen;
-    public bool finished;
+    public static bool finished;
     GameObject item;
     public int indexScene;
 
+  
 
 
     void Start()
@@ -73,11 +74,13 @@ public class Objectives : MonoBehaviour
 
                         if (item.GetComponent<Interactable>().IsActive)
                         {
-                            if(item.name == "Door")
+                            if(item.tag == "End")
                             {
                                 item.GetComponent<Image>().sprite = null;
                                 item.GetComponent<Interactable>().IsActive = false;
-                                SceneManager.LoadScene(indexScene);
+                                finished = true;
+                                Debug.Log(finished);
+
                             }
                             else
                             {
@@ -96,8 +99,7 @@ public class Objectives : MonoBehaviour
     }
 
 
-
-
+    
     void Update()
     {
         for (int i = 0; i < TypesCkeckCount; i++)
@@ -174,7 +176,7 @@ public class Objectives : MonoBehaviour
                             item = UiItems.transform.GetChild(a).gameObject;
 
                         }
-                        Debug.Log(finished);
+                      //  Debug.Log(finished);
 
                     }
 

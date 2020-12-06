@@ -316,9 +316,13 @@ MonoBehaviour:
   typingSpeed: 0.04
   continueButon: {fileID: 1539938269}
   indexScene: 4
-  SceneUi: {fileID: 0}
+  NavigationUI: {fileID: 0}
+  Itemsui: {fileID: 0}
   DialogueUI: {fileID: 660848244}
+  Flashback: {fileID: 0}
+  CurrentCase: {fileID: 0}
   EndScene: 1
+  FlahBackBool: 0
 --- !u!4 &315192580
 Transform:
   m_ObjectHideFlags: 0

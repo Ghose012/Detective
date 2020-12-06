@@ -71,7 +71,7 @@ public class Editor_Objectives : Editor
                     objective.UiItems = (GameObject)EditorGUILayout.ObjectField("UiItems", objective.UiItems, typeof(GameObject), true);
                     objective.KeyOpen = (GameObject)EditorGUILayout.ObjectField("KeyItem", objective.KeyOpen, typeof(GameObject), true);
                     objective.indexScene = EditorGUILayout.IntField("index scene: ", objective.indexScene);
-
+                    
                     break;
                 #endregion
 

@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Case1/Part1.unity
     guid: 59c80ac943121854d9ea9782626ad648
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Case1/Case1- FlashBack.unity
     guid: 040a13e285359a547bc5d08637ba75ad
+  - enabled: 1
+    path: Assets/Scenes/Case1/Part2.unity
+    guid: f367edec52625d64493e04812b036a5e
   m_configObjects: {}

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - objectif
+  - End
+  - dialogue
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - 
   - 
   - Post Processing
-  - 
+  - flashbak
   - 
   - 
   - 
