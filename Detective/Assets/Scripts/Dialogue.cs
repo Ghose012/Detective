@@ -73,17 +73,19 @@ public class Dialogue : MonoBehaviour
             textDisplay.text = "";
             continueButon.SetActive(false);
             //nbadel e scene ki youfa dialogue w nebda kamalt l case
-            if (EndScene && index!=0)
+
+            if (EndScene)
             {
                 SceneManager.LoadScene(indexScene);
+                Debug.Log("next");
             }
 
             else if (!EndScene )
             {
                 Debug.Log("not end");
                 
-                    if (FlahBackBool == true)
-                    {
+                if (FlahBackBool == true)
+                {
                     if (CurrentCase)
                     {
                         DialogueUI.SetActive(false);
@@ -108,13 +110,13 @@ public class Dialogue : MonoBehaviour
                         
                         }
                     }
-                    else if (FlahBackBool == false)
-                    {
+                else if (FlahBackBool == false)
+                {
                         Debug.Log("not flashback");
                         DialogueUI.SetActive(false);
                         NavigationUI.SetActive(true);
                         Itemsui.SetActive(true);
-                    }
+                }
 
                 Destroy(gameObject);
 
