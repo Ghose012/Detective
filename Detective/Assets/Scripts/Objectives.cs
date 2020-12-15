@@ -14,6 +14,7 @@ public enum TypeofObjective
     Key,
 }
 
+[RequireComponent(typeof(AudioSource))]
 [ExecuteInEditMode]
 public class Objectives : MonoBehaviour
 {
@@ -46,11 +47,13 @@ public class Objectives : MonoBehaviour
     GameObject item;
     public int indexScene;
 
-  
+    AudioSource audioSource;
+
 
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         //still need to disable interactable script from objects related to a completed puzzle
         UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
         finished = false;
@@ -88,6 +91,10 @@ public class Objectives : MonoBehaviour
                                 item.GetComponent<Interactable>().IsActive = false;
                                 GetComponent<Interactable>().Locked = false;
                                 GetComponent<Interactable>().Openning();
+
+                                // temp
+                                if (transform.parent.GetComponent<Animator>() != null)
+                                    transform.parent.GetComponent<Animator>().enabled = true;
                             }
                         }
                     }
@@ -162,7 +169,7 @@ public class Objectives : MonoBehaviour
                         if (AllObjectives[j].IsComplete)
                         {
                             KeyOpen.GetComponent<Interactable>().Hidden = false;
-
+                            //audioSource.Play();
                         }
 
                     }
@@ -174,7 +181,6 @@ public class Objectives : MonoBehaviour
                         {
                             finished = true;
                             item = UiItems.transform.GetChild(a).gameObject;
-
                         }
                       //  Debug.Log(finished);
 

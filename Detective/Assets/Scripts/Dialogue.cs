@@ -23,6 +23,7 @@ public class Dialogue : MonoBehaviour
     public GameObject DialogueUI;
     public GameObject Flashback;
     public GameObject CurrentCase;
+    public GameObject PuzzlePart;
 
     public bool EndScene;
     public bool FlahBackBool;
@@ -80,10 +81,10 @@ public class Dialogue : MonoBehaviour
                 Debug.Log("next");
             }
 
-            else if (!EndScene )
+            else if (!EndScene)
             {
                 Debug.Log("not end");
-                
+
                 if (FlahBackBool == true)
                 {
                     if (CurrentCase)
@@ -91,31 +92,34 @@ public class Dialogue : MonoBehaviour
                         DialogueUI.SetActive(false);
                         NavigationUI.SetActive(true);
                         Itemsui.SetActive(true);
+
+                        if (PuzzlePart != null)
+                            PuzzlePart.SetActive(true);
                     }
                     Debug.Log("flash true");
-                        //mel case bech nemchi lel flashback
-                        if (!Flashback.activeInHierarchy)
-                        {
-                            Debug.Log("slah tru");
-                            Flashback.SetActive(true);
-                            CurrentCase.SetActive(false);
-                        }
-                        //mel flashback bech anrjaa lel case
-                        else if (Flashback.activeInHierarchy)
-                        {
-
-                            Debug.Log("active");
-                            Flashback.SetActive(false);
-                            CurrentCase.SetActive(true);
-                        
-                        }
+                    //mel case bech nemchi lel flashback
+                    if (!Flashback.activeInHierarchy)
+                    {
+                        Debug.Log("slah tru");
+                        Flashback.SetActive(true);
+                        CurrentCase.SetActive(false);
                     }
+                    //mel flashback bech anrjaa lel case
+                    else if (Flashback.activeInHierarchy)
+                    {
+
+                        Debug.Log("active");
+                        Flashback.SetActive(false);
+                        CurrentCase.SetActive(true);
+
+                    }
+                }
                 else if (FlahBackBool == false)
                 {
-                        Debug.Log("not flashback");
-                        DialogueUI.SetActive(false);
-                        NavigationUI.SetActive(true);
-                        Itemsui.SetActive(true);
+                    Debug.Log("not flashback");
+                    DialogueUI.SetActive(false);
+                    NavigationUI.SetActive(true);
+                    Itemsui.SetActive(true);
                 }
 
                 Destroy(gameObject);

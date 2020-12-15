@@ -19,7 +19,7 @@ public enum TypeofItem
 
 }
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider2D), typeof(AudioSource))]
 [ExecuteInEditMode]
 public class Interactable : MonoBehaviour, IPointerDownHandler
 {
@@ -28,6 +28,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     Camera cam;
     public int TypesCount;
+
+    AudioSource audioSource;
 
     #region VariablesTypes
     //zoom (item,pos) , OpenClose (isActive,pos,item), search(pos), Coloring(item)
@@ -79,6 +81,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         cam = Camera.main;
         InitialPos = transform.position;
         Target = Item;
@@ -100,6 +103,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     if (GetComponent<Image>().sprite != null)
                     {
                         IsActive = !IsActive;
+                        audioSource.Play();
                         for (int j = 0; j < UiItems.transform.childCount; j++)
                         {
                             if (UiItems.transform.GetChild(j).gameObject != gameObject)
@@ -114,6 +118,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 case TypeofItem.Navigation:
 
                     cam.orthographicSize = 5;
+
+                    audioSource.Play();
 
                     for (int k = 0; k < Destinations.Length; k++)
                     {
@@ -154,6 +160,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
         if (!Locked)
         {
             IsActive = !IsActive;
+            audioSource.Play();
 
             if (IsActive)
             {
@@ -227,13 +234,17 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region Zoomer
                 case TypeofItem.Zoomer:
+                    audioSource.Play();
                     cam.orthographicSize = zoom;
                     cam.transform.position = pos;
                     GetComponent<Collider2D>().enabled = false;
                     if (Item != null)
                     {
-                        if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
-                            Item.GetComponent<Interactable>().Hidden = false;
+                        if (Item.GetComponent<Interactable>() != null)
+                        {
+                            if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                                Item.GetComponent<Interactable>().Hidden = false;
+                        }
                         else
                             Item.SetActive(true);
                     }
@@ -242,6 +253,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region Collectable
                 case TypeofItem.Collectable:
+                    audioSource.Play();
                     for (int j = 0; j < UiItems.transform.childCount; j++)
                     {
                         if (UiItems.transform.GetChild(j).GetComponent<Image>().sprite == null)
@@ -250,7 +262,8 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             break;
                         }
                     }
-                    Destroy(gameObject);
+                    Destroy(gameObject,0.05f);
+                    GetComponent<Interactable>().enabled = false;
                     break;
                 #endregion
 
@@ -290,6 +303,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         {
                             if (Item.GetComponent<Interactable>().IsActive)
                             {
+                                audioSource.Play();
                                 GetComponent<SpriteRenderer>().enabled = true;
                                 Item.GetComponent<Image>().sprite = null;
                                 Item.GetComponent<Interactable>().IsActive = false;
@@ -302,6 +316,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                         {
                             if (Item.GetComponent<Interactable>().IsActive)
                             {
+                                audioSource.Play();
                                 GetComponent<SpriteRenderer>().enabled = true;
                                 Item.GetComponent<Image>().sprite = null;
                                 Item.GetComponent<Interactable>().IsActive = false;
@@ -319,6 +334,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region Search
                 case TypeofItem.Search:
+                    audioSource.Play();
                     if (transform.position == InitialPos)
                     {
                         transform.position = new Vector3(pos.x, pos.y, 0f);
@@ -365,6 +381,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             if (!changed)
                             { Target.GetComponent<SpriteRenderer>().color = colorChoice; }
 
+                            audioSource.Play();
                         }
                     }
 
