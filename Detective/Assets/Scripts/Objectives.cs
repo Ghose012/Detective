@@ -143,8 +143,8 @@ public class Objectives : MonoBehaviour
                         if (PlaceHolders[j].GetComponent<SpriteRenderer>().enabled)
                             o++;
                     }
-                    /* if (o == PlaceHolders.Length)
-                         IsComplete = true;*/
+                     if (o == PlaceHolders.Length)
+                         IsComplete = true;
 
                     if (Item != null)
                         Item.GetComponent<Interactable>().Hidden = false;

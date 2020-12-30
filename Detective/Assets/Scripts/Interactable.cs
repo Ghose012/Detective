@@ -475,15 +475,24 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                 #region Input
                 case TypeofItem.InputPuzzle:
 
-                    if (RightAnswer.ToString() == MyInput.text)
+                    if(MyInput.text.Length == MyInput.characterLimit)
                     {
-                        MyInput.DeactivateInputField();
-                        Item.SetActive(true);
-                        CanvasIn.SetActive(false);
-                        Debug.Log("true answer");
+                        if (RightAnswer.ToString() == MyInput.text)
+                        {
+                            MyInput.DeactivateInputField();
+                            Item.SetActive(true);
+                            CanvasIn.SetActive(false);
+                            Debug.Log("true answer");
+                        }
+                        else if (RightAnswer.ToString() != MyInput.text)
+                        {
+                            audioSource.Play();
+                            MyInput.text = "";
+                            Debug.Log("wrong answer");
+                        }
                     }
-
-                    break;
+                   
+                        break;
                     #endregion
 
             }
