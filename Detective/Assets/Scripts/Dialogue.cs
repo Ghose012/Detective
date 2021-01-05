@@ -96,11 +96,9 @@ public class Dialogue : MonoBehaviour
                         if (PuzzlePart != null)
                             PuzzlePart.SetActive(true);
                     }
-                    Debug.Log("flash true");
                     //mel case bech nemchi lel flashback
                     if (!Flashback.activeInHierarchy)
                     {
-                        Debug.Log("slah tru");
                         Flashback.SetActive(true);
                         CurrentCase.SetActive(false);
                     }
@@ -108,7 +106,6 @@ public class Dialogue : MonoBehaviour
                     else if (Flashback.activeInHierarchy)
                     {
 
-                        Debug.Log("active");
                         Flashback.SetActive(false);
                         CurrentCase.SetActive(true);
 

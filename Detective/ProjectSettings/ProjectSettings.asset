@@ -642,10 +642,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 12468d51-6151-42a5-9b4a-18c5900824b1
+  cloudProjectId: 96be3028-cd97-4da8-b3a6-90c4c3d93d55
   framebufferDepthMemorylessMode: 0
   projectName: Detective
-  organizationId: alis12
+  organizationId: unity_zi0bplwwlbvpma
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

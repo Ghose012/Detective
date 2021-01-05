@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+    public GameObject Buttons;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -24,5 +26,29 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(3);
 
+    }
+
+    public void Settings()
+    {
+        if (Buttons.activeInHierarchy)
+        {
+            Buttons.SetActive(false);
+        }
+        else if (!Buttons.activeInHierarchy)
+        {
+            Buttons.SetActive(true);
+
+        }
+
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    
+    }
+
+    public void Repeat()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
