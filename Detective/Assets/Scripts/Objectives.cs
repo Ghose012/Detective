@@ -126,8 +126,11 @@ public class Objectives : MonoBehaviour
                         IsComplete = true;
                         if (Item != null)
                         {
-                            if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
-                                Item.GetComponent<Interactable>().Hidden = false;
+                            if (Item.GetComponent<Interactable>() != null)
+                            {
+                                if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
+                                    Item.GetComponent<Interactable>().Hidden = false;
+                            }
                             else
                                 Item.SetActive(true);
                         }
