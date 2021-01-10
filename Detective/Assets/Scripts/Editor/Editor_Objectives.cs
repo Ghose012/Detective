@@ -29,11 +29,11 @@ public class Editor_Objectives : Editor
                     objective.Item = (GameObject)EditorGUILayout.ObjectField("Item", objective.Item, typeof(GameObject), true);
                     GUILayout.Space(5f);
                     SerializedProperty hands = serializedObject.FindProperty("Hands");
-                    EditorGUILayout.PropertyField(hands, new GUIContent("hands spin count"));
+                    EditorGUILayout.PropertyField(hands, new GUIContent("Options"));
                     serializedObject.ApplyModifiedProperties();
                     GUILayout.Space(5f);
                     SerializedProperty time = serializedObject.FindProperty("Time");
-                    EditorGUILayout.PropertyField(time, new GUIContent("Time Check Spin"));
+                    EditorGUILayout.PropertyField(time, new GUIContent("Value Check"));
                     serializedObject.ApplyModifiedProperties();
                     GUILayout.Space(5f);
                     objective.IsComplete = EditorGUILayout.Toggle("objective done or not", objective.IsComplete);

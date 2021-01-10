@@ -16,6 +16,7 @@ public enum TypeofItem
     Coloring,
     Search,
     InputPuzzle,
+    Switcher,
 
 }
 
@@ -28,7 +29,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     Camera cam;
     public int TypesCount;
-
     AudioSource audioSource;
 
     #region VariablesTypes
@@ -76,6 +76,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     //OpenClose 
     public bool Locked;
+
+    //switcher
+    public Sprite[] Options;
 
     #endregion
 
@@ -387,6 +390,19 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                     break;
                 #endregion
+
+                #region Switcher
+                case TypeofItem.Switcher:
+                    Value++;
+                    if (Value > Options.Length)
+                    {
+                        Value = 1;
+                        GetComponent<SpriteRenderer>().sprite = Options[0];
+                    }
+                    else
+                        GetComponent<SpriteRenderer>().sprite = Options[Value-1];
+                    break;
+                    #endregion
             }
         }
     }
@@ -492,7 +508,9 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                    
                         break;
-                    #endregion
+                #endregion
+
+               
 
             }
         }

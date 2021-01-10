@@ -14,6 +14,7 @@ public enum TypeofObjective
     Key,
     Save,
     Load,
+    SwitchersCheck,
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -203,7 +204,6 @@ public class Objectives : MonoBehaviour
                         {
 
                             KeyOpen.GetComponent<Interactable>().Hidden = false;
-                            Debug.Log("hidden");
                             
                             //audioSource.Play();
                         }
@@ -218,7 +218,6 @@ public class Objectives : MonoBehaviour
                             finished = true;
                             item = UiItems.transform.GetChild(a).gameObject;
                         }
-                       Debug.Log("finish" + finished);
 
                     }
 

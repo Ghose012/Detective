@@ -126,8 +126,12 @@ public class Editor_Interactable : Editor
                     interactable.MyInput = (InputField)EditorGUILayout.ObjectField("player Answer", interactable.MyInput, typeof(InputField), true);
                     interactable.Item = (GameObject)EditorGUILayout.ObjectField("ItemHidden", interactable.Item, typeof(GameObject), true);
                     interactable.CanvasIn = (GameObject)EditorGUILayout.ObjectField("CanvasIn", interactable.CanvasIn, typeof(GameObject), true);
+                    break;
+                #endregion
 
-
+                #region Switcher
+                case TypeofItem.Switcher:
+                    //DrawDefaultInspector();
                     break;
                     #endregion
             }
