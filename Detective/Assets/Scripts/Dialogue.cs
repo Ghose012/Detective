@@ -27,6 +27,7 @@ public class Dialogue : MonoBehaviour
 
     public bool EndScene;
     public bool FlahBackBool;
+    public bool Casesolved;
 
     void Start()
     {
@@ -77,6 +78,11 @@ public class Dialogue : MonoBehaviour
 
             if (EndScene)
             {
+                if (Casesolved)
+                {
+                    int levelInd = PlayerPrefs.GetInt("CurrentLevel");
+                    PlayerPrefs.SetInt("CurrentLevel", levelInd + 1);
+                }
                 SceneManager.LoadScene(indexScene);
                 Debug.Log("next");
             }

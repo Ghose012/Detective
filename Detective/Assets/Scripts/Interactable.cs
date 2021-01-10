@@ -482,7 +482,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                             MyInput.DeactivateInputField();
                             Item.SetActive(true);
                             CanvasIn.SetActive(false);
-                            Debug.Log("true answer");
                         }
                         else if (RightAnswer.ToString() != MyInput.text)
                         {

@@ -37,6 +37,8 @@ public class Editor_Objectives : Editor
                     serializedObject.ApplyModifiedProperties();
                     GUILayout.Space(5f);
                     objective.IsComplete = EditorGUILayout.Toggle("objective done or not", objective.IsComplete);
+                    GUILayout.Space(5f);
+
                     break;
                 #endregion
 
@@ -45,6 +47,10 @@ public class Editor_Objectives : Editor
                     SerializedProperty placeholder = serializedObject.FindProperty("PlaceHolders");
                     EditorGUILayout.PropertyField(placeholder, new GUIContent("PlaceHolders Check"));
                     serializedObject.ApplyModifiedProperties();
+                    GUILayout.Space(5f);
+                    objective.IsComplete = EditorGUILayout.Toggle("objective done or not", objective.IsComplete);
+                    GUILayout.Space(5f);
+
                     break;
                 #endregion
 
@@ -71,7 +77,9 @@ public class Editor_Objectives : Editor
                     objective.UiItems = (GameObject)EditorGUILayout.ObjectField("UiItems", objective.UiItems, typeof(GameObject), true);
                     objective.KeyOpen = (GameObject)EditorGUILayout.ObjectField("KeyItem", objective.KeyOpen, typeof(GameObject), true);
                     objective.indexScene = EditorGUILayout.IntField("index scene: ", objective.indexScene);
-                    
+                    GUILayout.Space(5f);
+
+
                     break;
                 #endregion
 

@@ -12,6 +12,8 @@ public enum TypeofObjective
     SlotPuzzle,
     ColoringPuzzle,
     Key,
+    Save,
+    Load,
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -49,17 +51,44 @@ public class Objectives : MonoBehaviour
 
     AudioSource audioSource;
 
+    //Save
+    public int levelInd;
+
+    private void Awake()
+    {
+        for (int i = 0; i < TypesCkeckCount; i++)
+        {
+            switch (Types[i])
+            {
+                #region Load
+                case TypeofObjective.Load:
+                    if (PlayerPrefs.HasKey("CurrentLevel"))
+                    {
+                        PlayerPrefs.GetInt("CurrentLevel");
+
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("CurrentLevel", 3);
+
+                    }
+
+                    break;
+                    #endregion
+            }
+        }
+    }
 
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         //still need to disable interactable script from objects related to a completed puzzle
-        UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
+        if (GameObject.Find("Ui") != null)
+            UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
         finished = false;
 
-
-
+        
     }
 
 
@@ -99,8 +128,7 @@ public class Objectives : MonoBehaviour
                         }
                     }
                     break;
-                    #endregion
-
+                #endregion
             }
         }
     }
@@ -130,6 +158,8 @@ public class Objectives : MonoBehaviour
                             {
                                 if (Item.GetComponent<Interactable>().Types[0] == TypeofItem.Collectable)
                                     Item.GetComponent<Interactable>().Hidden = false;
+                                else
+                                    Item.SetActive(true);
                             }
                             else
                                 Item.SetActive(true);
@@ -171,7 +201,10 @@ public class Objectives : MonoBehaviour
                     {
                         if (AllObjectives[j].IsComplete)
                         {
+
                             KeyOpen.GetComponent<Interactable>().Hidden = false;
+                            Debug.Log("hidden");
+                            
                             //audioSource.Play();
                         }
 
@@ -185,12 +218,13 @@ public class Objectives : MonoBehaviour
                             finished = true;
                             item = UiItems.transform.GetChild(a).gameObject;
                         }
-                      //  Debug.Log(finished);
+                       Debug.Log("finish" + finished);
 
                     }
 
                     break;
-                    #endregion
+                #endregion
+
             }
         }
     }
