@@ -18,7 +18,7 @@ public class Hover : MonoBehaviour
     void OnMouseOver()
     {
         panel.SetActive(true);
-        panel.transform.position = Input.mousePosition + Vector3.up * 10;
+        panel.transform.position = Input.mousePosition + Vector3.up * 12;
         AltText.text = Alt;
     }
 
