@@ -72,7 +72,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.334
+    value: 0.35
   smoothness:
     overrideState: 1
     value: 1
@@ -221,7 +221,7 @@ MonoBehaviour:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: -0.18080659}
   gamma:
-    overrideState: 1
+    overrideState: 0
     value: {x: 0.17643607, y: 1, z: 0.19500458, w: 0.7620999}
   gain:
     overrideState: 1
