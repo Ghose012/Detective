@@ -6,6 +6,12 @@ public class CameraReset : MonoBehaviour
 {
     public Vector3 pos;
     public GameObject Objects;
+    AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -13,8 +19,10 @@ public class CameraReset : MonoBehaviour
         {
             GetComponent<Camera>().orthographicSize = 5;
             transform.position = pos;
-            
-            for(int i = 0; i < Objects.transform.childCount; i++)
+
+            audioSource.Play();
+
+            for (int i = 0; i < Objects.transform.childCount; i++)
             {
                 Objects.transform.GetChild(i).GetComponent<Collider2D>().enabled = true;
             }
