@@ -576,7 +576,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -584,6 +584,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &86565846
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -899,7 +901,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -10}
   - {x: -17.85, y: 0, z: -10}
   step: -1
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -907,6 +909,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &137070672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1415,7 +1419,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -1423,6 +1427,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &228455652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1775,6 +1781,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &292838404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2197,7 +2205,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -2205,6 +2213,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &310661324
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2455,7 +2465,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -2463,6 +2473,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &313125770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2695,7 +2707,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -2703,6 +2715,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &314853781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2986,7 +3000,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -2994,6 +3008,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &365723878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3217,7 +3233,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -3225,6 +3241,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 1
+  Options: []
+  OptionValue: 0
 --- !u!61 &394445331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3288,7 +3306,7 @@ MonoBehaviour:
   Time: 
   PlaceHolders: []
   AllObjectives: []
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   Open: {fileID: 21300000, guid: c2ddeff8dd6e7bf479d681604108927c, type: 3}
   KeyOpen: {fileID: 2080010305}
   indexScene: 0
@@ -3546,7 +3564,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -3554,6 +3572,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &403615879
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3739,7 +3759,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -3747,6 +3767,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &420462855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4294,7 +4316,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -4302,6 +4324,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &509873567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4487,7 +4511,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -4495,6 +4519,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &520985746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4686,7 +4712,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -4694,6 +4720,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &531134792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5645,6 +5673,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 1
+  Options: []
+  OptionValue: 0
 --- !u!1 &697289104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,7 +5901,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -5879,6 +5909,8 @@ MonoBehaviour:
   MyInput: {fileID: 1057535968}
   CanvasIn: {fileID: 801641407}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &702284691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6044,7 +6076,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -6052,6 +6084,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &706454968
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6263,7 +6297,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -6271,6 +6305,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &722917772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6728,7 +6764,7 @@ PrefabInstance:
     - target: {fileID: 4351686520318380748, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1300.0001
+      value: 1300
       objectReference: {fileID: 0}
     - target: {fileID: 4351686520318380748, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6748,7 +6784,7 @@ PrefabInstance:
     - target: {fileID: 4351686520499667052, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 300.00003
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4351686520499667052, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6803,7 +6839,7 @@ PrefabInstance:
     - target: {fileID: 4351686520917385488, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1100.0001
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 4351686520917385488, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6823,7 +6859,7 @@ PrefabInstance:
     - target: {fileID: 4351686521164331799, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1500.0001
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 4351686521164331799, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6858,7 +6894,7 @@ PrefabInstance:
     - target: {fileID: 4351686521392969640, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -871
+      value: -870.99994
       objectReference: {fileID: 0}
     - target: {fileID: 4351686521421865603, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6903,7 +6939,7 @@ PrefabInstance:
     - target: {fileID: 4351686521882691015, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 500.00003
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 4351686521882691015, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6923,7 +6959,7 @@ PrefabInstance:
     - target: {fileID: 4351686521940044946, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 900.00006
+      value: 900
       objectReference: {fileID: 0}
     - target: {fileID: 4351686521940044946, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -6953,7 +6989,7 @@ PrefabInstance:
     - target: {fileID: 4351686522107066485, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 700.00006
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4351686522107066485, guid: 0053849334269a749a77f7b8a4fe95e1,
         type: 3}
@@ -10026,7 +10062,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -10034,6 +10070,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &806050697
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10219,7 +10257,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -10227,6 +10265,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &884008681
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10329,7 +10369,7 @@ MonoBehaviour:
   Time: 02000000030000000100000001000000
   PlaceHolders: []
   AllObjectives: []
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   Open: {fileID: 0}
   KeyOpen: {fileID: 0}
   indexScene: 0
@@ -10618,7 +10658,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -10626,6 +10666,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &888613529
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10865,6 +10907,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &926855200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11050,7 +11094,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -11058,6 +11102,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &943460965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11235,7 +11281,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -11243,6 +11289,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &947188695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11487,7 +11535,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -11495,6 +11543,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &949516422
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11661,7 +11711,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -11669,6 +11719,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 1
+  Options: []
+  OptionValue: 0
 --- !u!61 &953770786
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11732,7 +11784,7 @@ MonoBehaviour:
   Time: 
   PlaceHolders: []
   AllObjectives: []
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   Open: {fileID: 21300000, guid: 672e9ab504e07f341b806a22f0c7da72, type: 3}
   KeyOpen: {fileID: 1870702775}
   indexScene: 0
@@ -12003,7 +12055,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -10}
   - {x: -17.85, y: 0, z: -10}
   step: 1
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -12011,6 +12063,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1020791456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12278,7 +12332,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -12286,6 +12340,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1033706013
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12672,6 +12728,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1064376029
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13225,7 +13283,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -13233,6 +13291,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1101339260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13382,7 +13442,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -13390,6 +13450,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1102220490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13701,7 +13763,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -13709,6 +13771,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1111452664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14074,7 +14138,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -14082,6 +14146,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1183544271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14247,7 +14313,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -14255,6 +14321,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1197176883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14509,6 +14577,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1210722959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14863,6 +14933,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1234700472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15133,6 +15205,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1308836263
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15442,6 +15516,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1333179923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16009,7 +16085,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -16017,6 +16093,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1369007649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16263,7 +16341,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -16271,6 +16349,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1411925434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16459,6 +16539,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1420509830
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16742,7 +16824,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -16750,6 +16832,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1429301189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16802,7 +16886,7 @@ MonoBehaviour:
   - {fileID: 1111452661}
   - {fileID: 1102220487}
   AllObjectives: []
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   Open: {fileID: 0}
   KeyOpen: {fileID: 0}
   indexScene: 0
@@ -17194,7 +17278,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -17202,6 +17286,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1440049037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17468,7 +17554,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -17476,6 +17562,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &1489445260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18048,7 +18136,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -18056,6 +18144,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &1558325272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18433,6 +18523,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1712464785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18867,7 +18959,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -18875,6 +18967,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &1795177200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19124,6 +19218,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1819582603
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19408,7 +19504,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -19416,6 +19512,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1870702777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19660,7 +19758,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -19668,6 +19766,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1871551562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19987,6 +20087,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &1934850460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20310,7 +20412,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 1
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -20318,6 +20420,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &2045869953
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20817,6 +20921,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!61 &2080010309
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21002,7 +21108,7 @@ MonoBehaviour:
   Objects: {fileID: 0}
   Destinations: []
   step: 0
-  UiItems: {fileID: 457562160}
+  UiItems: {fileID: 307168751}
   AffectedByZoom: 0
   ColorTool: {fileID: 0}
   colorChoice: {r: 0, g: 0, b: 0, a: 0}
@@ -21010,6 +21116,8 @@ MonoBehaviour:
   MyInput: {fileID: 0}
   CanvasIn: {fileID: 0}
   Locked: 0
+  Options: []
+  OptionValue: 0
 --- !u!114 &2115070625
 MonoBehaviour:
   m_ObjectHideFlags: 0
