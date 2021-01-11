@@ -144,7 +144,8 @@ public class Objectives : MonoBehaviour
                     int x = 0;
                     for (int j = 0; j < Hands.Length; j++)
                     {
-                        if (Hands[j].GetComponent<Interactable>().Value == Time[j])
+                        if (Hands[j].GetComponent<Interactable>().Value == Time[j] ||
+                            Hands[j].GetComponent<Interactable>().OptionValue == Time[j])
                             x++;
                     }
                     if (x == Hands.Length)
