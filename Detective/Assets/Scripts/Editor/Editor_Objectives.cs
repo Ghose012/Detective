@@ -38,6 +38,10 @@ public class Editor_Objectives : Editor
                     GUILayout.Space(5f);
                     objective.IsComplete = EditorGUILayout.Toggle("objective done or not", objective.IsComplete);
                     GUILayout.Space(5f);
+                    
+                    EditorGUI.DrawRect(EditorGUILayout.GetControlRect(false, 2f), Color.cyan);
+                    GUILayout.Space(5f);
+
 
                     break;
                 #endregion

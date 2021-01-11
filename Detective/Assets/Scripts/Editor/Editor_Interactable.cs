@@ -132,6 +132,13 @@ public class Editor_Interactable : Editor
                 #region Switcher
                 case TypeofItem.Switcher:
                     //DrawDefaultInspector();
+                    interactable.OptionValue = EditorGUILayout.IntField("OptionValue:", interactable.OptionValue);
+                    SerializedProperty Options  = serializedObject.FindProperty("Options");
+                    EditorGUILayout.PropertyField(Options, new GUIContent("Options"));
+                    serializedObject.ApplyModifiedProperties();
+                    GUILayout.Space(5f);
+                    EditorGUI.DrawRect(EditorGUILayout.GetControlRect(false, 2f), Color.blue);
+
                     break;
                     #endregion
             }

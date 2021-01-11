@@ -24,6 +24,7 @@ public enum TypeofItem
 [ExecuteInEditMode]
 public class Interactable : MonoBehaviour, IPointerDownHandler
 {
+    #region VariablesTypes
     [SerializeField]
     public List<TypeofItem> Types;
 
@@ -31,7 +32,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
     public int TypesCount;
     AudioSource audioSource;
 
-    #region VariablesTypes
     //zoom (item,pos) , OpenClose (isActive,pos,item), search(pos), Coloring(item)
     public GameObject Item;
     public Vector3 pos;
@@ -79,6 +79,7 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
     //switcher
     public Sprite[] Options;
+    public int OptionValue;
 
     #endregion
 
@@ -115,7 +116,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                     }
                     break;
                 #endregion
-
 
                 #region Navigation
                 case TypeofItem.Navigation:
@@ -393,14 +393,18 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
 
                 #region Switcher
                 case TypeofItem.Switcher:
-                    Value++;
-                    if (Value > Options.Length)
+                    if (GetComponent<SpriteRenderer>().enabled)
                     {
-                        Value = 1;
-                        GetComponent<SpriteRenderer>().sprite = Options[0];
+                        OptionValue++;
+                        TypesCount = 1;
+                        if (OptionValue > Options.Length)
+                        {
+                            OptionValue = 1;
+                            GetComponent<SpriteRenderer>().sprite = Options[0];
+                        }
+                        else
+                            GetComponent<SpriteRenderer>().sprite = Options[OptionValue-1];
                     }
-                    else
-                        GetComponent<SpriteRenderer>().sprite = Options[Value-1];
                     break;
                     #endregion
             }
@@ -509,8 +513,6 @@ public class Interactable : MonoBehaviour, IPointerDownHandler
                    
                         break;
                 #endregion
-
-               
 
             }
         }

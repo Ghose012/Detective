@@ -21,10 +21,10 @@ public enum TypeofObjective
 [ExecuteInEditMode]
 public class Objectives : MonoBehaviour
 {
+    #region MyVariables
     [SerializeField]
     public List<TypeofObjective> Types;
     public int TypesCkeckCount;
-
     //ColoringPuzzle, SpinCheck
     public GameObject Item;
     public bool IsComplete;
@@ -54,6 +54,7 @@ public class Objectives : MonoBehaviour
 
     //Save
     public int levelInd;
+    #endregion
 
     private void Awake()
     {
@@ -89,10 +90,8 @@ public class Objectives : MonoBehaviour
             UiItems = GameObject.Find("Ui").transform.Find("Items").gameObject;
         finished = false;
 
-        
+
     }
-
-
 
     public void OnMouseDown()
     {
@@ -133,8 +132,6 @@ public class Objectives : MonoBehaviour
             }
         }
     }
-
-
     
     void Update()
     {
@@ -153,6 +150,7 @@ public class Objectives : MonoBehaviour
                     if (x == Hands.Length)
                     {
                         IsComplete = true;
+
                         if (Item != null)
                         {
                             if (Item.GetComponent<Interactable>() != null)
