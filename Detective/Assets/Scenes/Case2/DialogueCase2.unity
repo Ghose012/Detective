@@ -433,16 +433,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23939880a98ba1c4396026edd8284914, type: 2}
-  m_sharedMaterial: {fileID: -8063293160935064956, guid: 23939880a98ba1c4396026edd8284914,
+  m_fontAsset: {fileID: 11400000, guid: b6c2b67759c96b142b582f71ae64232d, type: 2}
+  m_sharedMaterial: {fileID: 1962016157831393868, guid: b6c2b67759c96b142b582f71ae64232d,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293388263
-  m_fontColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+    rgba: 4283097343
+  m_fontColor: {r: 1, g: 0.87843144, b: 0.2901961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1143,7 +1143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 750, y: -368}
+  m_AnchoredPosition: {x: 729.5, y: -370}
   m_SizeDelta: {x: 168.8, y: 47}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1216214528
