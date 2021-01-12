@@ -125,7 +125,7 @@ public class Dialogue : MonoBehaviour
                     Itemsui.SetActive(true);
                 }
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
 
             }
 
