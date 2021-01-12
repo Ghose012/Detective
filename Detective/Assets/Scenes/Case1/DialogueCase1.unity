@@ -314,7 +314,7 @@ MonoBehaviour:
   - 'Lieutenant: Go to his place and check it. I''ll send you the adress'
   typingSpeed: 0.04
   continueButon: {fileID: 1539938269}
-  indexScene: 7
+  indexScene: 8
   NavigationUI: {fileID: 0}
   Itemsui: {fileID: 0}
   DialogueUI: {fileID: 660848244}
@@ -539,7 +539,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -838,6 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons: {fileID: 0}
+  ButtonsFB: {fileID: 0}
   MailsOpened: []
 --- !u!4 &1111062418
 Transform:
@@ -911,7 +912,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23939880a98ba1c4396026edd8284914, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b6c2b67759c96b142b582f71ae64232d, type: 2}
   m_sharedMaterial: {fileID: -8063293160935064956, guid: 23939880a98ba1c4396026edd8284914,
     type: 2}
   m_fontSharedMaterials: []
@@ -920,7 +921,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4293388263
-  m_fontColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+  m_fontColor: {r: 1, g: 0.87843144, b: 0.2901961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -990,7 +991,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_subTextObjects:
   - {fileID: 0}
   - {fileID: 0}
@@ -1137,7 +1138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 750, y: -368}
+  m_AnchoredPosition: {x: 719, y: -348}
   m_SizeDelta: {x: 168.8, y: 47}
   m_Pivot: {x: 1, y: 0}
 --- !u!1 &1846071502

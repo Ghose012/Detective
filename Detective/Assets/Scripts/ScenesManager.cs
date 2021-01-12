@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ScenesManager : MonoBehaviour
 {
-    public GameObject Buttons;
+    public GameObject Buttons, ButtonsFB;
     public GameObject[] MailsOpened;
   
 
@@ -61,6 +61,16 @@ public class ScenesManager : MonoBehaviour
         else if (!Buttons.activeInHierarchy)
         {
             Buttons.SetActive(true);
+
+        }
+
+        if (ButtonsFB.activeInHierarchy)
+        {
+            ButtonsFB.SetActive(false);
+        }
+        else if (!ButtonsFB.activeInHierarchy)
+        {
+            ButtonsFB.SetActive(true);
 
         }
 

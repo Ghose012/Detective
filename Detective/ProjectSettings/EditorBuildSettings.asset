@@ -24,12 +24,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Case2/DialogueCase2.unity
     guid: a698a95c5dc78cc4281f1d5d99018bde
   - enabled: 1
-    path: Assets/Scenes/Grade Passage.unity
-    guid: 8746f8c1a85451c48877402a52bdd3c5
+    path: Assets/Scenes/case3/DialogueCase3.unity
+    guid: f05fe65bd2297284291b917516d40f23
+  - enabled: 1
+    path: Assets/Scenes/Ending/Outro.unity
+    guid: b2a50f22ce936a147aafce68aea069e3
   - enabled: 1
     path: Assets/Scenes/Case1/Part1.unity
     guid: 59c80ac943121854d9ea9782626ad648
   - enabled: 1
     path: Assets/Scenes/Case2/case2.unity
     guid: dc83fb4da08854248b9212be4bd2c3f0
+  - enabled: 1
+    path: Assets/Scenes/case3/case3.unity
+    guid: 3708f0adcb9bed64f8b817f081a4bd1b
+  - enabled: 1
+    path: Assets/Scenes/Ending/Names.unity
+    guid: 03af2d4a7ae8a594e80d237f7e1d9fa2
   m_configObjects: {}
